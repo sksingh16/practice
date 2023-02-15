@@ -1,0 +1,333 @@
+1. Write a program to find the first and the last occurrence of the letter 'o' and character ',' in
+"Hello, World".
+Ans1--package string;
+
+public class occurence_of_word {
+	public static void main(String[] args) {
+	
+		String s= "Hello, World";
+		
+		for(int i=0;i<s.length();i++) 
+		{
+			if(s.charAt(i)=='o') 
+			{
+				System.out.println(s.indexOf('o'));
+				
+			}
+			if(s.charAt(i)==',') 
+			{
+				System.out.println(s.indexOf(','));
+			}
+			
+		}
+		
+	}
+}
+
+
+2. Write a program that takes your full name as input and displays the abbreviations of the first
+and middle names except the last name which is displayed as it is. For example, if your name is
+Robert Brett Roser, then the output should be R.B.Roser.
+
+Ans2--package string;
+
+public class initials {
+
+	public static void main(String[] args) {
+	
+		
+		String s = "Sahib Kanwal Singh";
+		
+		System.out.println("The full name is: " + s);
+		
+		System.out.print("Initials with surname is: ");
+		
+		s = s.trim();
+		String s1 = "";
+		for (int i = 0; i < s.length(); i++)
+		{
+		   char ch = s.charAt(i);
+		   if (ch!= ' ') 
+		   {
+		      s1 = s1 + ch;
+		   } else
+		   {
+		      System.out.print(Character.toUpperCase(s1.charAt(0)) + ". ");
+		      s1 = "";
+		   }
+		}
+		
+		String str2 = "";
+		for (int j = 0; j < s1.length(); j++) 
+		{
+		   if (j == 0)
+		   {
+		      str2 = str2 + Character.toUpperCase(s1.charAt(0));
+		   }
+		   else 
+		   {
+		      str2 = str2 + Character.toLowerCase(s1.charAt(j));
+		}
+		   }
+		System.out.println(str2);
+	}
+	
+	
+	
+
+}
+
+
+
+
+
+
+
+
+
+3. Input a string of alphabets. Find out the number of occurrence of all alphabets in that string.
+Find out the alphabet with maximum occurrence.
+Ans3--package string;
+import java.util.Scanner; 
+public class string_occurence {
+
+	public static void main(String[] args) {
+		
+		int i;
+		int counter[] = new int[256];  
+		Scanner sc = new Scanner(System.in);  
+		System.out.print("Please enter a string: ");  
+
+		String s = sc.nextLine();  
+
+		for (i = 0; i < s.length();  i++)   
+		{  
+			counter[(int) s.charAt(i)]++;  
+		}  
+		 
+		for (i = 0; i < 256; i++)   
+		{  
+			if (counter[i] != 0)   
+			{  
+		     
+				System.out.println((char) i + " --> " + counter[i]);  
+			}
+			
+		}
+		int max = -1; 
+		char result = ' ';
+        for ( i = 0; i < s.length(); i++) {
+            if (max < counter[s.charAt(i)]) {
+                max = counter[s.charAt(i)];
+                result = s.charAt(i);
+            }
+        }
+        System.out.println("The maximun repating is "+result);
+
+}
+ 
+
+  
+
+}  
+
+
+
+
+
+4. Write a Java program to replace spaces with underscores.
+Ans4--package string;
+
+public class relace {
+
+	public static void main(String[] args) {
+			String s = "Welcome to the world of java";
+
+			String s1 =s.replace(' ', '_'); 
+			System.out.println(s1);
+			
+	}
+
+}
+
+
+
+5. Write a Java program to detect double and triple spaces in a string.
+Ans5--package string;
+
+public class detect_double_and_tripple_spaces {
+	public static void main(String[] args) {
+
+		
+		String s ="  Welcome  to  the  world   the   java";
+		int countdouble=0;
+		int counttripke = 0;
+	
+		for(int i=0;i<s.length();i++)
+	    {
+			 if(s.charAt(i)==' '&& s.charAt(i+1)==' ')
+               {
+	    	   countdouble++;
+                
+	       
+               }
+			 if(s.charAt(i)==' '&& s.charAt(i+1)==' ' && s.charAt(i+2)==' ') 
+			 {
+				 counttripke++;
+				
+			 }
+        }
+		System.out.println(countdouble);
+		
+		 System.out.println(counttripke);
+	}
+}
+
+
+
+
+6. Java Program to Merge two String Arrays
+Ans6--package string;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class merge_two_arrys {
+	public static void main(String[] args) {
+	
+		String arr1[] = {"w","E","L","C","O","M","E"};  
+			    String arr2[] = {"J","A","V","A"};
+	
+			    
+			    System.out.println(Arrays.toString(arr1));
+			    System.out.println(Arrays.toString(arr2));
+			    
+			    
+			    ArrayList list = new ArrayList(Arrays.asList(arr1));
+			   
+			    
+			    
+			    list.addAll(Arrays.asList(arr2));
+			    
+			    
+			    System.out.println(list);
+			    
+}
+}
+
+
+
+7. Java Program to Reverse Each Word of a String
+Ans7--package string;
+
+import java.util.StringTokenizer;
+
+public class reverse_each_word_of_the_string {
+
+	public static void main(String[] args)
+	{
+	revrese("welcome to java world");
+		
+	}
+	
+	
+	static void revrese(String s) 
+	{
+		
+		String arr[]=s.split("\\s");  
+		String reverse="";  
+		 	
+		StringBuilder sb=new StringBuilder(s);  
+		        sb.reverse();   
+		        reverse=reverse + " ";
+		        reverse =sb.toString();
+		 
+		 
+		 System.out.println(reverse);
+			    
+		
+		
+	}
+	
+}
+
+
+
+
+8. Java Program to Check if Input String is Palindrome
+Ans8--package string;
+
+public class Stirng_palindrome {
+
+	public static void main(String[] args) 
+	{
+		System.out.println(ispalindrome("sahib"));
+
+	}
+	
+	static boolean ispalindrome(String s) 
+	{
+		String original = s;
+		String rev="";
+		
+		for(int i=0;i<s.length();i++)
+		{
+			char ch = s.charAt(i);
+			rev = ch+rev;
+			
+		}
+		
+		if(rev.equals(original))
+		{
+			return true;
+		}
+		else 
+		{
+			return false;
+		}
+		
+	
+		
+	}
+	
+
+}
+
+
+
+
+9. How to Remove or Trim All White Spaces from a String in Java
+Ans9--package string;
+
+public class trim_white_spaces {
+
+	public static void main(String[] args) {
+		
+		String s = "        JavaWorld     ";
+		
+		
+		String s1 = s.trim();
+		System.out.println(s1);
+	}
+
+}
+
+
+10. Java Program to Count Number of Words in Given String
+Ans10--package string;
+
+import java.util.StringTokenizer;
+
+public class count_number_of_words {
+	public static void main(String[] args) {
+	
+	
+	String s = "Welcome to java world";
+	StringTokenizer sb = new StringTokenizer(s);
+	
+	int n = sb.countTokens();
+	System.out.println(n);
+	
+	}
+}
+

@@ -1,0 +1,178 @@
+1. Write a program containing a possible exception. Use a try block to throw it and a catch block
+to handle it promptly.
+Ans1::-
+package exception_handling;
+
+public class simple_exc {
+
+	public static void main(String[] args) {
+	
+	try  
+        {  
+        int data=50/0;   
+        }  
+     
+        catch(ArithmeticException e)  
+        {  
+            System.out.println(e);  
+        }  
+        System.out.println("rest of the code");  
+
+    
+    }  
+      
+}
+
+
+2. Write a program that illustrates the application of multiple catch statements.
+Ans2::-package exception_handling;
+
+public class simple_exc1 {
+
+	public static void main(String[] args) {
+	
+		
+		          
+		           try{    
+		                int array[]=new int[5];    
+
+		                array[6]=30/0;    
+
+		                System.out.println(array[10]); 
+ 
+		               }
+		           
+		               catch(ArithmeticException e)
+		           
+		                  {  
+		                   System.out.println("Arithmetic Exception occurs");  
+		                  }   
+		           
+		               catch(ArrayIndexOutOfBoundsException e)  
+		           
+		                  {  
+		                   System.out.println("ArrayIndexOutOfBounds Exception occurs");  
+		                  }    
+		               catch(Exception e)  
+		           
+		                  {  
+		                   System.out.println("Error occurs");  
+		                  }             
+		               System.out.println("rest of the code"); 
+		               
+		    }  
+	
+}
+
+
+
+
+
+3. Write a program that demonstrates how certain exception types are not allowed to be thrown.
+Ans3::-package exception_handling;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class rethrow {
+ 
+		       public static void main(String[] args) throws RuntimeException
+		      { 
+		        
+		    	   FileReader fr = new FileReader("E:\\Sample\\simple.txt");
+		    	   BufferedReader br = new BufferedReader(fr);
+		    	   String s = br.readLine();
+		    	   System.out.println(s);
+		    	   
+		       } 
+
+
+
+
+
+4. Write a program to demonstrate the concept of re-throwing an exception.
+Ans4::-package exception_handling;
+
+public class rethrow {
+ 
+		       public static void main(String[] args) 
+		      { 
+		             
+		              try 
+		             { 
+		                  divide(); 
+		              } 
+		              catch(Exception e) 
+		             { 
+		                 System.out.println("Rethrown Exception Caught in Main()"+ e); 
+		                  
+		             } 
+		       } 
+		       static void divide() 
+			     { 
+			         int x,y,z; 
+			         try 
+			         { 
+			            x = 6 ; 
+			            y = 0 ; 
+			            z = x/y ; 
+			            System.out.println(x + "/"+ y +" = " + z); 
+			          } 
+			          catch(Exception e) 
+			          { 
+			           System.out.println("Exception Caught"); 
+			           
+			           throw e; 
+			          } 
+			      } 
+	
+}
+
+
+
+
+5. You will be given two integers and as input, you have to compute x/y. If x and y are not 32 bit
+signed integers or if y is zero, exception will occur and you have to report it. Read sample
+Input/Output to know what to report in case of exceptions.
+Ans5::-package exception_handling;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class number {
+
+	public static void main(String[] args) {
+		
+		
+		try
+		{
+			Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the value of x");
+		int a = sc.nextInt();
+
+		System.out.println("Enter the value of y");
+		int b = sc.nextInt();
+		
+
+		System.out.println("The result is :-- "+a/b);
+		
+		}
+
+		catch(InputMismatchException e) 
+		{
+			
+			System.out.println(e);
+		}
+		catch(Exception e) 
+		{
+			
+			System.out.println(e);
+		}
+		
+	}
+
+}
+
