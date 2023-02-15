@@ -1,0 +1,368 @@
+1. Specify the need and advantage of inheritance with an example.
+Ans1: Inheritance can be defined as a mechanism by which one object can acquire all the properties and behavior of a parent object.
+The basic idea of Inheritance is to create the new class called child class from an parent class.
+The child class inherits the properties of the parent class. 
+--->   The biggest advantage:---- of inheritance is code reusability the fields and methods of parent class get's inherited in child class,
+. It can access those features from parent class, that is what the code reusability is.
+
+Eg of inheritance -->   
+import java.io.*;
+ 
+
+class Employee {
+    int salary = 60000;
+}
+ 
+class Engineer extends Employee {
+    int benefits = 10000;
+}
+
+class inher {
+    public static void main(String args[])
+    {
+        Engineer E1 = new Engineer();
+        System.out.println("Salary : " + E1.salary);
+                           
+ System.out.println("Benefits"  : + E1.benefits);
+    }
+}
+
+
+
+2. State the type of inheritance with real life examples.
+Ans2: ------    Single Inheritance     ------
+package day6;
+
+class dog {
+
+  String name;
+  
+   void bark() {
+    System.out.println("Dog can Bark");
+         }
+}
+
+class labra extends dog {
+
+  
+  public void display() 
+  {
+    System.out.println("Name is " + name);
+  }
+}
+
+public class output_1 
+{
+  public static void main(String[] args) 
+  {
+
+	labra l1 = new labra();
+    l1.name = "Goofy";
+    l1.display();
+    l1.bark();
+
+  }
+}
+		  ------    Multilevel Inheritance     ------
+
+		package day6;
+
+class grandfather
+{  
+void grandf()
+{
+	System.out.println("Grandfather class has been called...");}  
+}  
+class father extends grandfather{  
+       void fat()
+{
+	System.out.println("Father class has been called...");}  
+}  
+class son extends father{  
+void son1()
+{
+	System.out.println("Son class has been called...");}  
+}  
+class output_1
+{  
+	public static void main(String args[])
+	{  
+son d=new son();  
+d.son1();  
+d.fat();  
+d.grandf();  
+}
+	}
+		------    Hierarchical Inheritance     ------
+
+
+package day6;
+
+class father
+{  
+void simple()
+{
+	System.out.println("Father class...");}  
+}  
+class son1 extends father{  
+void method1()
+{
+	System.out.println("Son 1 method 1...");}  
+}  
+class son2 extends father{  
+void method2()
+{
+	System.out.println("Son 2 method 2...");}  
+}  
+class output_1{  
+public static void main(String args[]){  
+son2 c=new son2();  
+c.method2();  
+c.simple();  
+ 
+}} 
+		------    Hybrid Inheritance     ------
+
+package day6;  
+class GrandFather    
+{    
+public void grandd()    
+{    
+System.out.println("He is grandfather.");    
+}    
+   }    
+
+class Father extends GrandFather    
+  {    
+public void fathrr()    
+   {    
+System.out.println("He is father.");    
+   }    
+}    
+    
+class Son extends Father    
+  {    
+public void son1()    
+    {    
+		System.out.println("He is son.");    
+    }    
+}    
+    
+   public class output_1 extends Father    
+ {    
+public void son2s()    
+ {    
+		System.out.println("He is Son2.");    
+ }    
+public static void main(String args[])    
+{    
+   
+Son obj = new Son();  
+		obj.son1();  
+     obj.fathrr();  
+    obj.grandd();  
+       output_1 obj2 = new output_1();  
+    obj2.son2s(); 
+   obj2.fathrr(); 
+    obj2.grandd(); 
+}
+
+}  
+
+
+3. Describe types of relationships with examples.
+Ans3:   Has-A Relationship ---> When an object of one class is created as data member inside another class, it is called Has-A relationship.
+	Is-A Relationship --->  The relationship between two classes in which one class extends another class , it is called Is-A relationship.
+
+			------Example of Has-A Relationship-----
+ package day6;
+ class Address
+{
+	 
+	 int pin ;
+	 String city;
+	 String state;
+	public address(int pin , String city , String state ) 
+	{
+			this.pin=pin;
+			this.city=city;
+			this.state=state;
+			
+	} 
+class person{
+	
+		int Id_no;
+String name;
+Address address;
+
+
+public person(int id_no,String name ,Address address){
+			Id_no=id_no;
+			this.name=name;
+			this.address=address;
+}
+
+
+
+
+void display() 
+	{
+		
+		System.out.println("My city name is " +city +" and state is "+state);
+	}
+	} 
+ }
+public class aggregation_example {
+public static void main(String[] args) 
+{
+	Address ad = new Address(143001, "Amritsar","Punjab");		
+	ad.display();
+	
+}
+}
+			------Example of Is-A Relationship-----			
+ package day6;
+import java.io.*;
+
+class Device {
+	  
+    private String deviceName;
+  
+    public void setDeviceName(String deviceName)
+    {
+        this.deviceName = deviceName;
+    }
+  
+    public String getDeviceName()
+    {
+        return this.deviceName + " is a Device";
+    }
+    
+}
+public class neee extends Device {
+	public static void main(String gg[])
+    {
+        
+        Device device = new Bulb();
+        
+        
+        System.out.println("Device name is Bulb");
+        device.setDeviceName("Bulb");
+        
+       
+        System.out.println(device.getDeviceName());
+    }
+}
+
+
+  
+
+4. Will the code successfully compiled? If yes, what is the output?
+
+public class A {
+ int x = 20;
+}
+public class B extends A {
+ int x = 30;
+}
+public class Test {
+public static void main(String[] args)
+{
+ B b = new B();
+ System.out.println(b.x);
+ A a = new A();
+ System.out.println(a.x);
+ A a2 = new B();
+ System.out.println(a2.x);
+ }
+}
+
+
+Ans4: Yes , the code has been compiled successfully.
+      The output = 30
+		   20
+    		   20	
+
+
+
+5. Will this code compile successfully? If yes, what is the output? If no, identify the errors.
+package pack1;
+public class A
+{
+ private int x = 50;
+ protected int y = 100;
+ int z = 200;
+}
+package pack2;
+import pack1.A;
+public class B extends A {
+}
+import pack2.B;
+public class Test {
+public static void main(String[] args)
+{
+ B b = new B();
+ System.out.println(b.x);
+ System.out.println(b.y);
+ System.out.println(b.z);
+ }
+}
+Ans5: PACKAGE in Java is a collection of classes, sub-packages, and interfaces. It helps organize your classes into a folder structure and make it easy to locate and use them. 
+ it helps improve code reusability.There can be only one package statement in each source file, and it applies to all types in the file. 
+If you put multiple types in a single source file, only one can be public , and it must have the same name as the source file.
+
+
+
+
+6. What is the difference between Composition and Inheritance in OOP?
+Ans6:  	-------- Inheritance --------	
+#	In inheritance, we define the class which we are inheriting(super class) and most importantly it cannot be changed at runtime.
+#	In inheritance we need parent class in order to test child class.
+#       It is an is-a relationship.
+
+   	-------- Composition --------
+#       Whereas in composition we only define a type which we want to use and which can hold its different implementation also it can change at runtime.
+#       Composition allows to test the implementation of the classes we are using independent of parent or child class.
+#       While it is a has-a relationship.
+
+
+7. What is method hiding in Java?
+Ans7:     -------- Method Hiding --------
+If a subclass defines a static method with the same signature as a static method in the 
+superclass, then the method in the subclass hides the one in the superclass. This mechanism happens because the static method is resolved at the compile time.	
+#      In this Both methods must be static.	
+#      Method resolution takes care by the compiler based on the reference type.	
+#      It is considered as compile-time polymorphism or static polymorphism.
+
+
+
+8. How to call a method of a subclass, if you are holding an object of the subclass in a reference
+variable of type superclass?
+Ans8: package day6;
+import java.io.*;
+
+class  Parent{  
+	   void dis() {  
+	      System.out.println("method of parent class");  
+	   }  
+	}  
+	  
+	class Child extends Parent {  
+	   void dis() {  
+	      System.out.println("method of child class");  
+	   }  
+	}  
+	class neee{  
+	   public static void main(String args[]) {  
+	        
+	      Parent obj1 = (Parent) new Child();  
+	      obj1.dis();  
+	      }
+	}
+  
+
+
+
+
+
+

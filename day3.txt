@@ -1,0 +1,611 @@
+1. Write a program to display how this keyword can be used as a return type and this
+as an argument.
+Ans1 :-  ----this as a keyword---
+
+package day3;
+
+class A{
+	
+	
+	void method(A obj) {
+		System.out.println("Method invoked");
+	}
+	
+	void method2() {
+		method(this);
+	}
+	public static void main(String[] args)
+	   {
+		A a = new A();
+		a.method2();
+		
+	   }
+	
+}
+		---this as return---
+package day3;
+
+class A{
+	A getA() {
+		return this;
+		
+	}
+	
+	
+	void msg() {
+		System.out.println("Method");
+	}
+	class test1{
+	public static void main(String[] args)
+	   {
+	new A().getA().msg();	
+	   }
+	}
+	
+}
+
+
+
+2. Write a program to display how this keyword and object of a class point to the
+same memory location.
+Ans2 :- class Account{
+int a , b;
+
+public void setData(int a , int b){
+
+					this.a=a;
+					this.b=b;
+      				  }
+
+			public void showData()
+{
+				System.out.println("Value of A "+a);
+				System.out.println("Value of B "+b);
+}
+		public static void main(String[] args)
+{
+
+Account obj = new Account();
+obj.setData(2,3);
+obj.showdata();
+}
+
+}
+
+3. List the type of variables supported in java.
+Ans3 :- Variables are used for storing data values.These change during execution of programs;
+
+In Java, there are different types of variables
+
+#String - stores text, such as "Hello". String values are surrounded by double quotes
+#int - stores integers such as 123 or -123.
+#float - stores floating point numbers, with decimals, such as 19.99 or -19.99
+#char - stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes
+#boolean - stores values with two states: true or false
+
+4. Define constructors and their usage with example.
+Ans4 :- A constructor in Java is similar to a method that is invoked when an object of the class is created.
+        
+Here is the example
+ package day3;
+
+public class constructorr {
+	
+	private String name;
+	constructorr() {
+	    
+	    name = "SahibKanwalSingh";
+	  }
+
+	public static void main(String[] args)
+	{
+		constructorr ob = new constructorr();
+		
+		System.out.println("The name is " + ob.name);
+		
+	}
+
+}
+
+
+5. Display with an example in which order the static content(static
+methods,blocks,main method,non static methods,class level blocks etc) executes.
+Ans5 :-  class Parent {    
+    		Parent() {
+        System.out.println("Parent Constructor");
+    }    
+    static {
+        System.out.println("Parent static block");    
+    }    
+    {
+        System.out.println("Parent initialisation  block");
+    }
+}
+
+public class this_use extends Parent {    
+    {
+        System.out.println("Child initialisation block");
+    }
+    static {
+        System.out.println("Child static block");
+    }
+
+    public this_use() {
+        System.out.println("Child Constructor");
+    }    
+    public static void main(String[] args) {
+        new this_use();    
+    }
+}
+
+
+Parent static block
+Child static block
+Parent initialization  block
+Parent Constructor
+Child initialization block
+Child Constructor
+
+6. Write a program to check whether year is a leap year or not using conditional
+operator.
+Ans6 :- package day3;
+
+public class LYEAR {
+
+	public static void main(String[] args) {
+		
+		System.out.println( checkYear(2027)? "This year is leap Year" :
+                "This year is not leap Year" );
+	}
+	 static boolean checkYear(int year)
+	 {
+	     
+	     if (year % 400 == 0)
+	         return true;
+	  
+	     if (year % 100 == 0)
+	         return false;
+	  
+	     if (year % 4 == 0)
+	         return true;
+	     return false;
+}
+
+
+}
+
+7. Write a program to check whether character is an alphabet or not using
+conditional operator.
+Ans7 :- package day3;
+import java.util.Scanner;
+
+public class Alphabet {
+	
+	public static void main(String[] args) {
+		
+		char ch;
+	Scanner	sc= new Scanner(System.in);
+
+		System.out.print("Enter any Character  ");
+		ch = sc.next().charAt(0);
+		
+		String result = ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) ?
+				ch + " is an Alphabet" : ch + " is Not an Alphabet";
+		
+		System.out.println(result);
+		
+		}	
+}
+
+8. Write a program to enter P, T, R and calculate Compound Interest.
+Ans8 :- package day3;
+
+import java.util.Scanner;
+
+public class compound_intereest {
+
+	public static void main(String[] args) 
+	{
+		Scanner	sc= new Scanner(System.in);
+
+		System.out.print("Enter Principle ");
+		int P = sc.nextInt();
+		
+		System.out.print("Enter Time ");
+		int T = sc.nextInt();
+		
+		System.out.print("Enter Rate ");
+		double R = sc.nextDouble();
+
+		
+		  double CI = P *
+                  (Math.pow((1 + R / 100), T));
+        
+      System.out.println("Compound Interest is "+ CI);
+  
+		
+	}
+
+}
+
+
+9. Write a program to find maximum between three numbers.
+Ans9 :- package day3;
+
+import java.util.Scanner;
+
+public class largest_of_three_numbers {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the First number");
+		int number1 = sc.nextInt();
+		
+		
+		System.out.println("Enter the Second number");
+		int number2 = sc.nextInt();
+		
+		System.out.println("Enter the Third number");
+		int number3 = sc.nextInt();
+		
+		
+		
+		if(number1>number2) 
+		{
+			if(number1>number3) 
+			{
+				System.out.println("The "+number1+" is the largest");
+			}
+			
+		}
+		if(number1<number2) 
+		{
+			if(number2>number3) 
+			{
+				System.out.println("The "+number2+" is the largest");
+			}
+			
+		}
+		if(number3>number2) 
+		{
+			if(number3>number1) 
+			{
+				System.out.println("The "+number3+" is the largest");
+			}
+			
+		}
+		
+	}
+}
+
+
+10.Write a program to check whether a character is uppercase or lowercase alphabet.
+Ans10 :- package day3;
+
+import java.util.Scanner;
+
+public class upercase_or_lowercase {
+
+	public static void main(String[] args) {
+		
+		String str;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the Character");
+		str = sc.nextLine();
+		char a[] = str.toCharArray();
+		
+		for(int i=0; i<a.length;i++) 
+		{
+			if(a[i]>='A' && a[i]<='Z')
+			{
+				System.out.println("The character is in uppercase");
+				
+			}
+			else if(a[i]>='a' && a[i]<='z') 
+			{
+				System.out.println("The character is in Lowercase");
+				
+			}
+			
+		}
+	}
+
+}
+
+
+11.Write a program to find all roots of a quadrati equation.
+Ans11 :- package day3;
+import java.util.Scanner;
+public class rooots {
+
+	public static void main(String[] args) {
+		
+		double secondRoot = 0, firstRoot = 0;
+	      Scanner sc = new Scanner(System.in);
+	      System.out.println("Enter the value of a ::");
+	      double a = sc.nextDouble();
+
+	      System.out.println("Enter the value of b ::");
+	      double b = sc.nextDouble();
+
+	      System.out.println("Enter the value of c ::");
+	      double c = sc.nextDouble();
+
+	      double determinant = (b*b)-(4*a*c);
+	      double sqrt = Math.sqrt(determinant);
+
+	      if(determinant>0){
+	         firstRoot = (-b + sqrt)/(2*a);
+	         secondRoot = (-b - sqrt)/(2*a);
+	         System.out.println("Roots are :: "+ firstRoot +" and "+secondRoot);
+	      }else if(determinant == 0){
+	         System.out.println("Root is :: "+(-b + sqrt)/(2*a));
+	      }
+
+   }
+}
+
+12.Write a program to enter any number and print its prime factors.
+Ans12 :- package day3;
+import java.util.*;
+public class print_primes {
+	 
+
+	   public static void main(String[] args)
+	   {
+	       
+	      primeFactors(60);
+	   }
+	   
+		    static void primeFactors(int n)
+		   {
+
+		      for(int i = 2; i<= n; i++){
+		          if(isprime(i)==1){
+		             int temp = n;
+		             while(temp%i==0){
+		                System.out.print(i + " ");
+		                temp =temp/ i;
+		             }
+		          }
+		       }
+
+		   }
+		   static int isprime(int n){
+
+			      for(int i = 2; i<=Math.sqrt(n); i++)
+			      {
+			        if(n%i==0)
+			          return 0;
+			      }
+
+			      return 1;
+			   }
+
+	   
+	}
+
+
+13.Write a program to print all Armstrong numbers between 1 to n.
+Ans13 :- package day3;
+
+
+public class arm2
+{
+    public static void main(String[] args) 
+     {
+        int n, b;
+        int sum = 0;
+        System.out.print("Armstrong numbers from 1 to 1000:");
+        for(int i = 1; i <= 1000; i++)
+        {
+            n = i;
+            while(n > 0)
+            {
+                b = n % 10;
+                sum = sum + (b * b * b);
+                n = n / 10;
+            }
+            if(sum == i)
+            {
+                System.out.print(i+" ");
+            }
+            sum = 0;
+        }
+    }
+}
+
+14.Write a program to convert Hexadecimal to Decimal number system.
+Ans14 :-  package day3;
+import java.util.Scanner;
+public class hexa_to_decimal {
+	
+	
+	   public static void main(String args[]){ 
+		   
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter any hexadecimal number: ");
+		String hexnum = sc.nextLine();
+			
+		
+		int num = Integer.parseInt(hexnum,16);
+			
+		System.out.println("Decimal equivalent of given hex number: "+num);
+	   }
+	}
+
+
+
+15.Write a program to find HCF (GCD) & LCM of two numbers.
+Ans15 :-   package day3;
+
+import java.util.Scanner;
+
+public class HCF_lcm {
+
+	public static void main(String[] args) 
+	{
+		int hcf=0 , lcm;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the first number");
+		int num1 = sc.nextInt();
+		
+		System.out.println("Enter the second number");
+		int num2 = sc.nextInt();
+		
+		
+		for(int i=1; i<=num1; i++)
+		 {
+			  if(num1%i==0 && num2%i==0)
+			  {
+			   	hcf = i;
+			  }
+		 }
+		
+		lcm = (num1 * num2)/hcf;
+		System.out.println("HCF "+hcf);
+
+		System.out.println("LCM "+lcm);
+		
+	}
+
+}
+
+17.Write a program to copy all elements from an array to another array.
+Ans17 :- package day3;
+
+import java.util.Arrays;
+
+public class Arrays_copy {
+
+	public static void main(String[] args) {
+		
+			    int [] a = {1,2,3,4,5};
+			    
+			    int b[] = new int[a.length];
+
+			    System.out.println("Elements of Original array: ");
+			    System.out.println(Arrays.toString(a));
+
+			    for (int i = 0; i <a.length; i++)
+			    {
+			      b[i] = a[i];
+			    }
+
+			    System.out.println("Elements of Copied array: ");
+			    System.out.println(Arrays.toString(b));
+	}
+
+}
+
+
+18.Write a program to delete an element from an array at specified position.
+Ans18 :- package Basic_Codes;
+import java.util.*;
+public class delete_at_specific_pos {
+	   
+	    public static void main(String args[])
+	    {
+	        
+	        int arr[] = {1,2,3,4,5};
+	        
+	        System.out.println("Elements of Original array: ");
+		    System.out.println(Arrays.toString(arr));
+	        
+	        System.out.print("Enter index to delete");
+	        
+	        Scanner sc = new Scanner(System.in);
+	        int index = sc.nextInt();
+	        
+	        delete(arr,index);
+	    }
+	   
+	   
+	         static void delete(int arr[], int index){  
+	        for (int i=index+1; i<arr.length; i++)
+	        {
+	            arr[i-1]=arr[i];
+	        }
+	        
+	        System.out.print("After deletion : ");
+	        
+	        for(int i = 0 ; i <arr.length-1;i++)
+	        {
+	            System.out.print(arr[i]+" ");
+	        }
+	    }
+	
+}
+
+
+19.Write a program to delete all duplicate elements from an array.
+Ans19 :- package Basic_Codes;
+
+import java.util.Arrays;
+import java.util.HashSet;
+
+public class delete_duplicate {
+public static void main(String[] args) {
+		
+		
+		int array[] = {1,1,2,3,3,4,5,5,5,6,7,7,8,8,9,5,10};
+		System.out.println("Before deletion the array ---"+Arrays.toString(array));
+		HashSet<Integer> hs = new HashSet<>();
+		for(int i =0;i<array.length;i++)
+		{
+				hs.add(array[i]);
+			
+		}
+		 System.out.println("After deletion the array ---"+hs);
+		
+}
+}
+
+20.Write a program to put even and odd elements of array in two separate array.
+Ans20 :- package day3;
+import java.util.*;
+public class even_odd_arrays {
+	
+	    	    
+	    	    public static void main(String[] args)
+	    	    {
+	    	     
+	    	     
+	    	        int array[] = { 1,2,3,4,5,6,7};
+	    	 
+	    	        int evenSize = 0;
+	    	        int oddSize = 0;
+	    	        
+	    	        for (int i = 0; i < array.length; i++)
+	    	        {
+	    	            if (array[i] % 2 == 0)
+	    	                evenSize++;
+	    	            else
+	    	                oddSize++;
+	    	        }
+	    	       
+	    	        int[] even = new int[evenSize];
+	    	        int[] odd = new int[oddSize];
+	    	       
+	    	        int evn = 0, od = 0;
+	    	        for (int i = 0; i < array.length; i++) {
+	    	            if (array[i] % 2 == 0)
+	    	            {
+	    	                even[evn++] = array[i];
+	    	            }
+	    	            else
+	    	            {
+	    	            	odd[od++] = array[i];
+	    	            }
+	    	        }
+	    	        
+	    	        System.out.print("Even Array");
+	    	        System.out.println(Arrays.toString(even));
+	    	        
+	    	        System.out.print("Odd Array");
+	    	        System.out.println(Arrays.toString(odd));
+	    	    }
+	    	     
+	    	}
+	

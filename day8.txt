@@ -1,0 +1,349 @@
+1. Painting Shapes
+In this lab exercise you will develop a class hierarchy of shapes and write a program that computes the amount of
+paint needed to paint different objects. The hierarchy will consist of a parent class Shape with three derived classes -Sphere,
+Rectangle, and Cylinder. For the purposes of this exercise, the only attribute a shape will have is a name and the method of
+interest will be one that computesthe area of the shape (surface area in the case of three-dimensional shapes). Do the
+following.
+1. Write an abstract class Shape with the following properties:
+• An instance variable shapeName of type String
+• An abstract method area()
+• A toString methodthat returns the name of the shape
+1. Write an abstract class Shape with the following properties:
+• An instance variable shapeName of type String
+• An abstract method area()
+• A toString methodthat returns the name of the shape
+2. The file Sphere.java contains a class for a sphere which is a descendant of Shape. A sphere has a radius and its area
+(surface area) is given by the formula 4*PI*radius^2. Define similar classes for a rectangle and a cylinder. Both the
+Rectangle class and the Cylinder class are descendants of the Shape class. A rectangle is defined by its length and width and
+its area is length times width. A cylinder is defined by a radius and height and its area (surface area) is PI*radius^2*height.
+Define the toString method in a way similar to that for the Sphere class.
+3. The file Paint.java contains a class for a type of paint (which has a "coverage" and a method to compute the amount of
+paint needed to paint a shape). Correct thereturn statement in the amount method so the correct amount will be returned.
+Use the fact that the amount of paint needed is the area of the shape divided by the coverage for the paint. (NOTE: Leave
+the print statement -it is there for illustration purposes, so you can see the method operating on different types of Shape
+objects.)
+4. The file PaintThings.java contains a program that computes the amount of paint needed to paint various shapes. A paint
+object has been instantiated. Add the following to complete the program:
+• Instantiate the three shape objects: deck to be a 20 by 35 foot rectangle, bigBall to be a sphere of radius 15, and tank to be
+a cylinder of radius 10 and height 30.
+• Make the appropriate method calls to assign the correct values to the three amount variables. Run the program and test it.
+You should see polymorphism in action as the amount method computes the amount of paint for various shapes
+
+Ans1 :---
+
+package day7;
+
+import java.util.*;
+
+abstract class Shape1{
+	String shapeName;
+	abstract float area();
+	
+	public String toString() {
+		return  shapeName;
+	}
+	
+}
+class sphere extends Shape1{
+	float radius;
+	
+	public sphere(float radius) {
+		
+		this.radius = radius;
+		
+	}
+
+	@Override
+	float area() {
+		
+		 return (float) (4*(3.14)*(radius*radius));
+	}
+	
+}
+class Rectangle extends Shape1{
+	float length;
+	float breadth;
+	public Rectangle(float length, float breadth) {
+		
+		this.length = length;
+		this.breadth = breadth;
+		
+	}
+	
+	
+	@Override
+	float area()
+	{
+		return length*breadth;
+	}
+}
+
+
+class Cylinder extends Shape1{
+	float height;
+	float radius;
+	
+	public Cylinder(float height, float radius) {
+		
+		this.height = height;
+		this.radius = radius;
+		
+		
+	}
+
+	@Override
+	float area()
+	{
+		return (float) (2*3.14*radius*(radius+height));
+	
+	}
+}
+
+public class output1 {
+	public static void main(String args[]) 
+	{
+		
+		Cylinder s1 = new Cylinder(10.0f , 3.23f);
+		System.out.print(s1.area());
+		
+		System.out.println(s1.toString());
+	}
+
+}
+
+
+
+
+
+
+2. Is the following program written correctly? If yes, what value “result” variable will hold if you
+run the program?
+
+Ans2 :---The result will hold the sum of both numbers.
+
+
+
+
+3. What is the output of the following code?
+
+Ans3:---Exception Divison by Zero
+
+
+
+4. Consider you have an abstract class which is give below:
+Your class mustn't be public.
+You have to create another class that extends the abstract class. Then you can create an instance of
+the new class.
+Notice that setTitlemethod is abstract too and has no body. That means you must implement
+the body of that method in the child class.
+
+Ans4:---  package day7;
+
+abstract class Book{
+	String title;
+	abstract void setTitle(String s);
+	String getTitle(){
+		return title;
+	}
+	
+}
+
+class b extends Book{
+
+	@Override
+	void setTitle(String s)
+	{
+		
+	title =s;	
+	}
+	String getTitle() 
+	{
+		
+		return title;
+	}
+	
+	
+}
+
+public class out {
+
+	public static void main(String[] args) {
+			b b1 = new b();
+				b1.setTitle("Method invoked");
+	System.out.println(b1.getTitle());
+	
+	}
+
+}
+
+
+
+
+5. Create an abstract class 'Animals' with two abstract methods 'cats' and 'dogs'. Now create a class
+'Cats' with a method 'cats' which prints "Cats meow" and a class 'Dogs' with a method 'dogs'
+which prints "Dogs bark", both inheriting the class 'Animals'. Now create an object for each of
+the subclasses and call their respective methods.
+
+Ans5:---package day7;
+
+abstract class Animals {
+	abstract String cats();
+	abstract String dogs();
+}
+
+class Cats1 extends Animals {
+	@Override
+	String cats() {
+		return "cats meow";
+	}
+
+	@Override
+	String dogs() {
+		
+		return null;
+	}
+
+}
+
+class Dogs1 extends Animals {
+	String dogs() {
+		return "dogs bark";
+	}
+
+	@Override
+	String cats() {
+		
+		return null;
+	}
+}
+
+public class output {
+	public static void main(String args[]) {
+		Animals a1;
+
+		a1 = new Cats1();
+		System.out.println("For cats--> " + a1.cats());
+		a1 = new Dogs1();
+		System.out.println("For dogs--> " + a1.dogs());
+	}
+}
+
+
+
+
+6. We have to calculate the percentage of marks obtained in three subjects (each out of 100) by
+student A and in four subjects (each out of 100) by student B. Create an abstract class 'Marks'
+with an abstract method 'getPercentage'. It is inherited by two other classes 'A' and 'B' each
+having a method with the same name which returns the percentage of the students. The
+constructor of student A takes the marks in three subjects as its parameters and the marks in four
+subjects as its parameters for student B. Create an object for each of the two classes and print the
+percentage of marks for both the students.
+
+Ans6:---  package day7;
+abstract class Marks{
+	
+	abstract int getpercentage();
+	
+}
+
+class A extends Marks{
+	
+	int maths; 
+	int sci;
+	int sst;
+
+		A(int maths , int sci , int sst) {
+        this.maths = maths;
+        this.sci = sci;
+        this.sst = sst;
+    
+    }
+	
+	@Override
+	int getpercentage() {
+		int total = maths+sci+sst/100;
+		return total  ; 
+		
+	}
+	
+}
+
+class B extends Marks{
+	
+	int maths; 
+	int sci;
+	int sst;
+
+		B(int maths , int sci , int sst) {
+        this.maths = maths;
+        this.sci = sci;
+        this.sst = sst;
+    
+    }
+	
+	@Override
+	int getpercentage() {
+		int total = maths+sci+sst/100;
+		return total  ; 
+		
+	}
+	
+}
+
+public class output {
+	public static void main(String args[]) {
+		A a1 = new A(50, 56 ,80);
+		System.out.println(a1.getpercentage());
+		B b1 = new B(60, 89 ,22);
+		System.out.println(b1.getpercentage());
+	}
+}
+
+
+
+
+7. Identify the error in the following code.
+interface A {
+void m1();
+}
+public class B implements A {
+void m1(){
+ System.out.println("One");
+}
+}
+
+Ans7:---  Could not find or load main class , also the method void m1() of class be should be public.
+
+
+
+8. What will be the output of the following program?
+interface A {
+ int x = 10;
+ void m1();
+}
+public class B implements A {
+int x = 20;
+public void m1(){
+ System.out.println("One");
+ }
+}
+public class Test {
+public static void main(String[] args){
+ A a = new B();
+ a.m1();
+ System.out.println(a.x);
+ }
+}
+
+
+Ans8:--- The error in the code is-->There cannot be two public classes in a single Java program 
+
+
+
+
+
+
+
+
+
+

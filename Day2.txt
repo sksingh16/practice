@@ -1,0 +1,467 @@
+1. Write a program to check entered number is Palindrome or not.
+Ans1 :- package Basic_Codes;
+
+import java.util.Scanner;
+
+public class palindrome {
+	public static void main(String[] args) 
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number");
+		int number = sc.nextInt();
+		int original = number;
+		int reverse = 0;
+		
+		
+		while(number!=0) 
+		{
+			int rem = number%10;
+			reverse = reverse*10 + rem ; 
+			number = number/10;
+			
+		}
+		
+		System.out.println(reverse);
+		if(original==reverse) 
+		{
+			System.out.println("The number is palindrome");
+			
+		}
+		else {
+			
+			System.out.println("The number is not palindrome");
+		}
+		
+	}
+}
+
+2. Write a program to swap first and last digits of any number.
+Ans2 :-package Basic_Codes;
+
+public class firstandlast {
+	public static void main(String[]args) {
+		
+		reverseFirstAndLastDigits(1234);
+		
+		
+	}
+	static void reverseFirstAndLastDigits(int n) {
+	    
+	    int number = n;
+	    int num1 = 1;
+	    int count = 0;
+	    while (n != 0) {
+	        n = n / 10;
+	        count++;
+	    }
+	    
+	    for(int j=1; j<count; j++){
+	         num1 = num1*10;
+	    }
+	    int firstNum = number / num1;
+	    int lastNum = number % 10;
+	    int newNum = lastNum * num1 + (number - (firstNum * num1 + lastNum)) + firstNum;
+	    if (number % num1 == 0 ) {
+	        for (int i = 1; i < count; i++) {
+	            System.out.print("0");
+	        }
+	        System.out.println(firstNum);
+	    }else if(number % 10 == 0){
+	        System.out.print("0" + newNum);
+	    }
+	    else System.out.println(newNum);
+	
+}
+}
+
+3. Write a program to print Fibonacci series up to n terms.
+Ans3 :-package Basic_Codes;
+
+
+public class fibboncci {
+public static void main(String[] args) 
+		{
+			 int first =0;
+			 int second =1;
+			 int third; 
+			 
+			 int count =10;
+
+			 System.out.print(first+" "+second);
+			 for(int i =2;i<count;i++) 
+			 {
+				 third = first +second;
+				 System.out.print(" "+third);
+				 first =second;
+				 second = third;
+						 
+			 }
+				
+		}
+}
+	
+4. Write a program to create Simple Calculator using switch case.
+Ans4 :-package Basic_Codes;
+
+import java.util.Scanner;
+
+public class calculator {
+
+	public static void main(String[] args) {
+					int num  , num2 , result;
+					char ch;
+					Scanner sc = new Scanner(System.in);
+					 System.out.print("Enter the first number");
+					 	num = sc.nextInt();
+					 	
+					 	System.out.print("Enter the second number");
+					 	num2 = sc.nextInt();
+					 	
+					 	System.out.print("Choose operator");
+					 	ch = sc.next().charAt(0);
+					 	
+					 	
+					 	
+					 	switch(ch) {
+					 	case '+':
+					 		result = num + num2;
+					 		System.out.print("After doing addtion"+result);
+					 		break;
+					 	
+					 	case '-':
+					 		result = num - num2;
+					 		System.out.print("After doing addtion"+result);
+					 		break;
+					 		
+					 	case '*':
+					 		result = num * num2;
+					 		System.out.print("After doing addtion"+result);
+					 		break;
+					 		
+					 	case '/':
+					 		result = num / num2;
+					 		System.out.print("After doing addtion"+result);
+					 		break;
+					 		
+					 		
+					 	}
+					 	
+	}
+
+}
+
+5. Write a program to find maximum and minimum element in an array.
+Ans5 :-package Basic_Codes;
+
+import java.util.Arrays;
+
+public class max_and_min {
+	public static void main(String[] args) 
+	{
+		int [] array = {12,54,40,6,654,4,5,23,56,47,151};  
+
+		int min = array[0];
+		int max = array[0];
+		for(int i=0;i<array.length;i++) 
+		{
+			if(array[i]<min) 
+			{
+				min = array[i];
+			}
+			if(array[i]>max) 
+			{
+				max = array[i];
+				
+			}
+		}
+		System.out.println("The min element in array is "+min);
+		System.out.println("The max element in array is "+max);
+	
+	
+	
+	}
+}
+
+6. Write a program to insert an element in an array.
+Ans6 :-package Basic_Codes;
+
+import java.util.*;
+
+
+public class inserting_elemenst_in_array {
+	public static void main(String[] args) {
+		
+		
+	int size ,element ; 
+	Scanner sc = new Scanner(System.in);
+	System.out.print("Enter the length of the array");
+	size = sc.nextInt();
+	
+	
+	
+			int array[] = new int[size+1];
+			System.out.print("Enter the elements");
+				for(int i=0;i <size ;i++)
+				{
+							array[i] = sc.nextInt();
+	    		}
+		System.out.print("Which u want to insert");
+		
+		element = sc.nextInt();
+		array[size] = element;
+		
+		System.out.print("After inserting");
+		System.out.println(Arrays.toString(array));
+		
+		
+	}
+}
+7. Write a program to print all unique elements in the array.
+Ans7 :-package Basic_Codes;
+
+import java.util.*;
+
+
+public class print_unique {
+	public static void main(String[] args) {
+		
+		
+		int array[] = {1,1,2,2,3,4,5,5,5,6,6,7,7,7,8,8,9,5,10};
+		
+		HashSet<Integer> hs = new HashSet<>();
+		for(int i =0;i<array.length;i++)
+		{
+				hs.add(array[i]);
+			
+		}
+		 System.out.print(hs);
+		
+	}
+}
+
+8. Write a program to count frequency of each element in an array.
+Ans8 :-package Basic_Codes;
+
+import java.util.*;
+
+public class cout_frequency {
+	public static void main(String[] args) {
+		
+		
+		
+		Scanner sc = new Scanner(System.in);
+		int[] arr = new int[10];
+		int[] dup = new int[10];
+		
+		int n , i , count;
+		System.out.println("Enter the size of array");
+		n = sc.nextInt();
+		
+		System.out.println("Enter the elemnts in the array");
+		for(i=0;i<n;i++) {
+			arr[i]=sc.nextInt();
+			dup[i]=-1;
+		}
+		
+		for(i=0;i<n;i++) 
+		{
+			count=1;
+			for(int j=i+1;j<n;j++) {
+				if(arr[i]==arr[j])
+				{
+					count++;
+					dup[j]=0;
+				}
+			}
+			if(dup[i]!=0) {
+				dup[i] =count;
+			}
+			
+		}
+		
+		System.out.println("Duplicate elemnts in the array");
+		for(i=0;i<n;i++) {
+			if(dup[i]!=0) {
+				System.out.println("Number "+arr[i]+" Occur "+dup[i]+" Times ");	
+			}
+		}
+		
+	}
+}
+9. Write a program to sort array elements in ascending order.
+Ans9 :- package Basic_Codes;
+
+import java.util.Arrays;
+
+public class sort{
+public static void main(String[] args) 
+		{
+			  int[] array = {1,29,1,10,1,2,4,5,46};          
+			  	Arrays.sort(array);			
+			  for(int i=0;i<array.length;i++) 
+			  {
+				  System.out.print(array[i]+" ");
+			  }
+		}
+}
+
+10. Write a program to toggle case of each character of a string.
+Ans10 :-package Basic_Codes;
+
+import java.util.Scanner;
+
+public class toggle_case {
+	public static void main(String[] args) {
+		
+		
+		
+		String str;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the String to be toggled");
+		str = sc.nextLine();
+		char a[] = str.toCharArray();
+		
+		for(int i=0; i<a.length;i++) 
+		{
+			if(a[i]>='A' && a[i]<='Z')
+			{
+				a[i] = (char)((int)a[i]+32);
+				
+			}
+			else if(a[i]>='a' && a[i]<='z') 
+			{
+				a[i] = (char)((int)a[i]-32);
+				
+			}
+			
+		}
+		
+		System.out.println("After toggling ");
+		for(int i=0;i<a.length;i++) 
+		{
+			System.out.println(a[i]);
+			
+		}
+		
+		
+	}
+		
+
+}
+
+11. Write a program to find lowest frequency character in a string.
+Ans11 :-package Basic_Codes;
+
+public class lowest_frq_chararcter_in_a_string {
+public static void main(String[] args) {
+	
+	
+	String s = "abakjb";
+	char[] c =  s.toCharArray();
+	String s1="";
+	char[] a =  s1.toCharArray();
+	int size = c.length;
+	
+	
+	int count=0;
+	for(int i=0;i<size;i++) 
+	   {
+				count=0;
+			for(int j=0;j<size;j++)
+			  
+			{
+		
+				if(c[j]==c[i]) 
+				{
+						count++;
+	         	}
+		     }
+		System.out.println("the chararcter "+c[i]+" is present "+count+" times");
+	}
+	
+	
+	
+12. WAP to find the occurrence of each digit in a number.
+Ans12 :-package Basic_Codes;
+
+import java.util.Scanner;
+
+public class occurence_of_each_digit {
+	public static void main(String[] args) {
+		
+		
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter number");
+		
+		int num= sc.nextInt();
+		int ans;
+		
+		int b[] = new int[10];
+		
+		int original =num;
+		while(original>0)
+		{
+			ans=original%10;
+			for(int i=0; i<=9;i++) 
+			{
+				if(ans==i) 
+					{
+						b[i]++;	
+					}	
+				
+				
+			}
+			original=original/10;
+			
+		}
+		
+		for(int i=0;i<=9;i++) {
+			if(b[i]!=0)
+			{
+				System.out.println("Frequency of "+i+" is " +b[i]);
+			}
+		}
+	}
+}
+
+13. WAP to check Palindrome of a String	
+Ans13 :-package Basic_Codes;
+
+import java.util.Scanner;
+
+public class String_is_palindrome {
+	public static void main(String[] args) 
+	{
+	
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the  String");
+		
+		String s1 = sc.nextLine();
+
+			String original = s1;
+			String rev ="";
+			
+			
+			for(int i=0;i<s1.length();i++) 
+			{
+				char ch = s1.charAt(i);
+				rev= ch+rev;
+				
+			}
+			System.out.println(rev);
+			
+			
+			if(original==rev) 
+			{
+				System.out.println("The String is palindrome");
+			}
+			else
+			{
+				System.out.println("The String is not palindrome");
+			}
+			
+	}	

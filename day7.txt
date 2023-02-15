@@ -1,0 +1,221 @@
+1. What is Compile time polymorphism (Static polymorphism)?
+Ans1:-- > Compile-time polymorphism is a polymorphism that is resolved during the compilation process. 
+Overloading of methods is called through the reference variable of a class. Compile-time polymorphism is achieved by method overloading and operator overloading.
+
+package day6;
+public class test1 {
+   
+    
+    static void show(int a, int b)
+    {
+        System.out.println("This is integer function ");
+    }
+   
+   
+    static void show(double a, double b)
+    {
+        System.out.println("This is double function ");
+    }
+   
+    public static void main(String[] args)
+    {
+       
+        show(1, 2);
+        show(1.2, 2.4);
+    }
+}
+
+
+2. What is Run time polymorphism (Dynamic polymorphism)?
+Ans2:--  Runtime polymorphism or Dynamic Method Dispatch is a process in which a call to an overridden method is resolved at runtime rather than compile-time.
+ 
+ package day6;
+class test12{  
+	  void run(){System.out.println("running");}  
+	}  
+	class test1 extends test12{  
+	  void run(){System.out.println("running safely with 60km");}  
+	  
+	  public static void main(String args[]){  
+	    test1 b = new test1();
+	    b.run();  
+	  }  
+	} 
+
+
+3. Is there any errors in the following code? Will the code compile successfully?
+class A {
+String m1(String x){
+System.out.println("One");
+return "ABC";
+}
+String m1(String y){
+System.out.println("Two");
+return "PQR";
+}
+public static void main(String[] args){
+A a = new A();
+a.m1("ABC");
+}
+}
+Ans3:--This will show error -"Duplicate method m1(String) in type A". This is because Java can not determine which one to use if the parameters are the same.
+      So, it throws a duplicate method error instead. Yet the code will compile successfully and show the output as ="One".
+
+
+
+
+4. Will the code compile successfully? If yes, what will be the output of the program?
+ class A
+ {
+ void m1(A a)
+{
+ System.out.println("m1 method in class A");
+ }
+   }
+class B extends A
+ {
+public void m1(A a)
+    {
+ 		System.out.println("m1 method in class B");
+    }
+}
+public class Test
+{
+public static void main(String[] args)
+{
+A a = new A();
+a.m1(a);
+a.m1(new B());
+B b = new B();
+ b.m1(null);
+a = b;
+a.m1(null);
+a.m1(new A());
+ }
+}
+
+Ans4:-- The output of the code will be :---
+		m1 method in class A
+		m1 method in class A
+		m1 method in class B
+		m1 method in class B
+		m1 method in class B
+
+
+
+5. List the types of binding in java and explain with the help of an example.
+Ans5:--There are two types of Binding: Static and Dynamic Binding in Java.
+-->Static Binding in Java refers to a process where the compiler determines the type of object and resolves
+ the method during the compile-time. Generally, the compiler binds the overloaded methods using static binding.
+
+package day6;
+class Person
+{
+	   void speak()
+	  {
+	    System.out.println("Person speaks");
+	  }
+	}
+	class Teacher extends Person
+	{
+	  void speak()
+	  {
+	    System.out.println("Teacher speaks");
+	  }
+	}
+	
+	public class test1
+	{
+	  public static void main( String args[ ])
+	  {
+
+	    Person obj = new Teacher();
+	    obj.speak();
+	    
+	    Person obj2 = new Person();
+	    obj2.speak();
+	  }
+	}
+	  
+
+
+-->Dynamic Binding :- When the compiler resolves the method call binding during the execution of the program, such a process is known as Dynamic or Late Binding in Java.
+  package day6;
+class test1 {
+    public static class superclass {
+        void print()
+        {
+           
+            System.out.println("superclass is called");
+        }
+    }
+ 
+    public static class subclass extends superclass {
+       
+        @Override 
+        void print()
+        {
+ 
+            System.out.println("subclass is called");
+        }
+    }
+ 
+   
+    public static void main(String[] args)
+    {
+ 
+        superclass A = new superclass();
+        superclass B = new subclass();
+        A.print();
+        B.print();
+    }
+}
+
+
+6. Why do we need final keyword in Java?
+Ans6:-- The need of the final keyword in java is used to restrict the user. The final keyword is a non-access modifier used for classes, attributes and methods, which makes them impossible to override).
+The final keyword is useful when you want a variable to always store the same value, like PI (3.14159...)The java final keyword can be used in many context. Final can be:
+#variable
+#method
+#class
+
+
+
+7. Is there any error in the below code snippet? If not, what will be the output of the
+following program?
+public class Myclass {
+ private final int x = 10;
+ void m1()
+ {
+ final int x = 20;
+ System.out.println(x);
+ }
+public static void main(String[] args) {
+ Myclass obj = new Myclass();
+ obj.m1();
+ }
+}
+Ans7:-  The output of the code will be :--- 20
+
+
+
+
+8. What is a blank final variable in Java?
+Ans8:--#A final variable that is not initialized at the time of declaration is known as blank final variable.
+   #If you want to create a variable that is initialized at the time of creating object.
+#It can be initialized only in constructor.
+
+Example of blank final variable
+  
+class test1{  
+	  final int a;
+	    
+	  test1(){  
+	  a=70;  
+	  System.out.println(a);  
+	  }  
+	  
+	  public static void main(String args[]){  
+	    new test1();  
+	 }  
+	} 

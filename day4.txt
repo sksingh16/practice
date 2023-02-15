@@ -1,0 +1,360 @@
+1. State a real life example of encapsulation in java.
+Ans1:Encapsulation is a process of binding or wrapping the data and the codes that operate on the data into a single. 
+For Example:--The capsule, it is wrapped with different medicines. In a capsule, all medicine is encapsulated inside the capsule
+
+
+
+2. Explain with an example how encapsulation helps in data hiding.
+Ans2:As Encapsulation is a process of binding or wrapping the data and the codes that operate 
+on the data into a single. It is a mechanism used to hide the data implementation details while exposing the data abstraction to the outside world. 
+
+class Area {
+ 
+  int l;
+  int b;
+ 
+ 
+  Area(int l, int b) {
+    this.l = l;
+    this.b = b;
+  }
+ 
+
+  public void getArea() {
+    int area = l * b;
+    System.out.println("Area: " + area);
+  }
+}
+ 
+class rect {
+  public static void main(String[] args) {
+ 
+    Area rectangle = new Area(2, 16);
+    rectangle.getArea();
+  }
+}
+
+
+
+3. Explain the significance of POJO classes.
+Ans3:POJO in Java stands for Plain Old Java Object.The POJO file does not require any special classpath. It increases the readability & re-usability of a Java program.
+#The POJO class must be public.
+#It must have a public default constructor.
+#It may have the arguments constructor.
+#All objects must have some public Getters and Setters to access the object values by other Java Programs.
+
+
+
+4. Explain the need for Nested classes and types of Nested classes.
+Ans4:Java inner class or nested class is a class that is declared inside the class or interface.Nested classes enable you to group classes that 
+are only used in one place, increase the use of encapsulation, and create more readable code.
+
+There are two types of nested classes are defined in Java.
+#Static Nested Class.
+#Non-Static Nested Class
+
+
+
+5. State any 5 classes/Interfaces which are nested/Inner classes with example.
+Ans5:
+#Member inner class
+#Anonymous inner class
+#local inner class
+#static nested class
+#nested interface
+
+
+
+6. Write a program to sort array elements in descending order.
+Ans6: package day4;
+import java.util.Arrays;
+public class array_in_decreasing_order {
+
+	public static void main(String[] args) {
+	int array[] = {3,4,1,6,10};
+	int l = array.length;
+	
+	for(int i=0;i<l;i++) 
+		{
+		for(int j=i+1;j<l;j++) 
+		{
+		if(array[i]<array[j]) {
+		int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+		}
+		}
+		
+		}
+	
+	System.out.println(Arrays.toString(array));
+	}
+	
+	
+
+}
+
+
+
+7. Write a program to check whether a string is palindrome or not.
+Ans7:package day4;
+
+public class string_palindorme {
+
+	public static void main(String[] args) {
+	
+		String s ="sahib";
+
+		String rev = "";
+		
+		for(int i =0;i<s.length();i++) 
+		{
+			
+			char ch = s.charAt(i);
+			rev =   ch+rev;
+			
+		}
+		System.out.println(rev);
+		
+		if(s.equals(rev)) 
+		{
+			System.out.println("Yes it is palindrome");
+			
+		}
+		else {
+			System.out.println("No it is not palindrome");
+			
+		}
+		
+		
+		
+	}
+
+}
+
+8. Write a program to find highest frequency character in a string.
+Ans8:	
+package day4;
+import java.util.*;
+
+public class highest_frequency {
+ static final int N = 256;
+ 
+ public static void main(String[] args)
+ {
+  String s1 = "Bebo Technologies";
+  
+  System.out.println("The given string is: " + s1);
+  System.out.println("Max frequency in the given string is: "+ MaxOccuringChar(s1));
+ }
+ 
+ static char MaxOccuringChar(String s1) 
+ {
+	  int array[] = new int[N];
+	  int max = -1;
+	  
+	  for (int i = 0; i < s1.length(); i++) 
+	  {
+	   array[s1.charAt(i)]++;
+	   }
+	  
+	  char result = ' ';
+
+	  for (int i = 0; i < s1.length(); i++)
+	  {
+		  if (max < array[s1.charAt(i)]) 
+		  {
+			  max = array[s1.charAt(i)];
+			  result = s1.charAt(i);
+		  }
+	  }
+
+	  return result;
+	 }
+ 
+}
+
+
+
+
+9. WAP to find the occurrence of each digit in a number.
+Ans9:	package day4;
+
+import java.util.*;
+
+public class occurence_of_each_digit_in_number {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter number");
+		
+		int num= sc.nextInt();
+		int ans;
+		
+		int b[] = new int[10];
+		
+		int original =num;
+		while(original>0)
+		{
+			ans=original%10;
+			for(int i=0; i<=9;i++) 
+			{
+				if(ans==i) 
+					{
+						b[i]++;	
+					}	
+				
+				
+			}
+			original=original/10;
+			
+		}
+		
+		for(int i=0;i<=9;i++) {
+			if(b[i]!=0)
+			{
+				System.out.println("Frequency of "+i+" is " +b[i]);
+			}
+		}
+	}
+}
+
+
+
+10.WAP to reverse a string by capitalize the first letter of every word
+Ans10:package day4;
+
+public class revrese_with_capitalize {
+
+	public static void main(String[] args) {
+		String s ="sahib";
+
+		String rev = "";
+		
+		for(int i =0;i<s.length();i++) 
+		{
+			
+			char ch = s.charAt(i);
+			rev =   ch+rev;
+			
+		}
+			System.out.println(rev.toUpperCase());
+		
+
+	}
+
+}
+
+11.What will be the output of the following program?
+Ans11.  3131
+ 	3131
+	3131
+
+
+
+12.Can you find out the error in the following code?
+Ans12.  Inside inner class we can't declare static members. So that it is not possible to declare main() method inside non static inner class.
+
+
+13.How do you access field ‘i’ of class ‘XYZ’ in the below example?
+Ans13.package day4;
+class ABC
+{
+		class XYZ
+		{
+			int i=111;
+			
+		}
+	
+}
+public class errro_checking {
+
+	public static void main(String[] args)
+	{
+		ABC a  = new ABC();
+		ABC.XYZ b = a.new XYZ();
+		System.out.println(b.i);
+
+	}
+
+}
+
+
+14. Create a package encapsulationTest in this package:
+Step 1: Create a class Student and Declare stdName, stdRollNo, and stdId variables private
+in the class.
+Step 2: Apply public getter and setter method for each private variable in the class named as
+ModelClass.
+Step 3. Create a public class EncapTest
+Step 4: Create the object of class Student by using new keyword.
+Step 5: Call setter method and set the value of variables.
+Step 6: Call getter method to read the value of variables and print it on console
+
+Ans14:package encapsulationTest;
+
+ class student{
+	private String tdName; 
+	private String std ;
+	private int RollNo;
+	private int stdId; 
+
+
+	public String getName() {
+	    return tdName;
+	}
+	
+	public String getName1() {
+	    return std;
+	}
+	
+	public int getName2() {
+		 return  RollNo;
+	  }
+	
+	public int getName3(){
+		return stdId;
+		}
+	
+					
+					public void setName(String newName) {
+					    this.tdName = newName;
+					  }
+					
+					public void setName1(String newName) {
+					    this.std = newName;
+					  }
+					
+					public void setName2(int newName) {
+					    this.RollNo = newName;
+					  }
+					
+					public void setName3(int newName) {
+					    this.stdId = newName;
+					  }
+					
+					
+					
+					
+}
+ 
+ 
+ public class EncapTest {
+	 public static void main(String[] args) {
+	
+		 studentobj = new student();
+		 
+		 
+		 obj.setName("Sahib"); 
+		 obj.setName1("Bebo"); 
+		 obj.setName2(16); 
+		 obj.setName3(2023); 
+		 
+		 System.out.println(obj.getName());
+		 System.out.println(obj.getName1());
+		 System.out.println(obj.getName2());
+		 System.out.println(obj.getName3());
+		 
+		 
+}}
